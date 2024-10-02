@@ -1,0 +1,9 @@
+<form class="col-2 d-flex flex-column gap-2 mt-3 ms-2" [formGroup]="form">
+    <input class="form-control" type="text" placeholder="Фирмено име и ЕИК" formControlName="companyName">
+
+    <div class="d-flex align-items-end justify-content-between">
+        <button class="btn btn-primary" (click)="prevPage()">Back</button>
+
+        <button class="btn btn-primary" (click)="nextPage()">Next</button>
+    </div>
+</form>
