@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilderService } from '../../form-builder.service';
+import { FormBuilderService } from '../../services/form-builder.service';
 import { FormGroup } from '@angular/forms';
-import { FormStateService } from '../../form-state.service';
+import { FormStateService } from '../../services/form-state.service';
 
 @Component({
   selector: 'app-form2',
@@ -13,7 +13,7 @@ export class Form2Component implements OnInit {
   form!: FormGroup;
 
   get bussNameValue(): string {
-    return this.form.get('businessName')?.value;
+    return this.form.get('companyName')?.value;
   }
 
   constructor(
@@ -24,19 +24,24 @@ export class Form2Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.createFormGroup();
-    this.form.get('companyName')?.enable();
+
+    if (this.formState.formState.value.businessAcc) {
+      this.form.get('companyName')?.enable();
+    } else {
+      this.router.navigate(['/form/1']);
+    }
 
     this.form.patchValue({
       companyName: this.formState.formState.value.companyName,
     });
   }
 
-  nextPage() {
+  nextPage(): void {
     this.router.navigate(['/form/3']);
     this.formState.updateCompanyName(this.bussNameValue);
   }
 
-  prevPage() {
+  prevPage(): void {
     this.router.navigate(['/form/1']);
     this.formState.updateCompanyName(this.bussNameValue);
   }

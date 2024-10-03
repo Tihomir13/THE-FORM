@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FormStateService } from '../../form-state.service';
-import { FormBuilderService } from '../../form-builder.service';
+import { FormStateService } from '../../services/form-state.service';
+import { FormBuilderService } from '../../services/form-builder.service';
 import { FormGroup } from '@angular/forms';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormStateService } from '../../form-state.service';
+import { FormStateService } from '../../services/form-state.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FormBuilderService } from '../../form-builder.service';
+import { FormBuilderService } from '../../services/form-builder.service';
 
 @Component({
   selector: 'app-form3',
@@ -70,9 +70,21 @@ export class Form3Component implements OnInit {
     } else {
       this.router.navigate(['/form/1']);
     }
-  }
 
-  onCountryChange(value: string): void {}
+    this.formState.updateCountry(this.countryValue);
+    this.formState.updateCity(this.cityValue);
+    this.formState.updateStreet(this.streetValue);
+    this.formState.updatePostalCode(this.postalCodeValue);
+
+    if(this.shipmenBulgarianValue){
+      this.formState.updateShipmentType(this.shipmenBulgarianValue);
+    }
+
+    if(this.shipmentWorldwideValue){
+      this.formState.updateShipmentType(this.shipmentWorldwideValue);
+    }
+
+  }
 
   onSubmit(): void {
     console.log(this.form.value);

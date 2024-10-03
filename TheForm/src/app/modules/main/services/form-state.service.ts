@@ -28,7 +28,7 @@ export class FormStateService {
     city: '',
     street: '',
     postalCode: '',
-    shipmentType: '',
+    shipmentType: 'Worldwide1',
   });
   constructor() {}
 
