@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+
 import { FormStateService } from '../../services/form-state.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormBuilderService } from '../../services/form-builder.service';
 
 @Component({
@@ -28,12 +29,8 @@ export class Form3Component implements OnInit {
     return this.form.get('postalCode')?.value;
   }
 
-  get shipmentWorldwideValue(): string {
-    return this.form.get('shipmentWorldwide')?.value;
-  }
-
-  get shipmenBulgarianValue(): string {
-    return this.form.get('shipmenBulgarian')?.value;
+  get shipmentTypeValue(): string {
+    return this.form.get('shipmentType')?.value;
   }
 
   constructor(
@@ -76,14 +73,9 @@ export class Form3Component implements OnInit {
     this.formState.updateStreet(this.streetValue);
     this.formState.updatePostalCode(this.postalCodeValue);
 
-    if(this.shipmenBulgarianValue){
-      this.formState.updateShipmentType(this.shipmenBulgarianValue);
-    }
+    console.log(this.shipmentTypeValue);
 
-    if(this.shipmentWorldwideValue){
-      this.formState.updateShipmentType(this.shipmentWorldwideValue);
-    }
-
+    this.formState.updateShipmentType(this.shipmentTypeValue);
   }
 
   onSubmit(): void {

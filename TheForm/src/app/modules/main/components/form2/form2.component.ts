@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilderService } from '../../services/form-builder.service';
 import { FormGroup } from '@angular/forms';
+  
 import { FormStateService } from '../../services/form-state.service';
+import { FormBuilderService } from '../../services/form-builder.service';
 
 @Component({
   selector: 'app-form2',

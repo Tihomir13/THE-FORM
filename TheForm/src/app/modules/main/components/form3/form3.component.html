@@ -8,15 +8,13 @@
 
         <input class="form-control" type="text" placeholder="postal code" formControlName="postalCode">
 
-        <select *ngIf="countryInput.value == 'Bulgaria'" class="form-control" id="bulgarian"
-            formControlName="shipmentType">
+        <select *ngIf="countryInput.value == 'Bulgaria'" class="form-control" id="bulgarian" formControlName="shipmentType">
             <option value="Ekont">Еконт</option>
 
             <option value="Speedy">Спиди</option>
         </select>
 
-        <select *ngIf="countryInput.value !=='Bulgaria'" class="form-control" id="worldwide"
-            formControlName="shipmentType">
+        <select *ngIf="countryInput.value !=='Bulgaria'" class="form-control" id="worldwide" formControlName="shipmentType">
             <option value="Worldwide2">Worldwide 1</option>
 
             <option value="Worldwide2">Worldwide 2</option>
